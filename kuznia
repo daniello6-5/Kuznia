@@ -1,0 +1,50 @@
+
+%instalacja php
+sudo apt  install php 
+%instalacja apache2
+sudo apt  install apache2
+%dostep
+sudo chmod -R 777 /var/www/html
+%pobrany limonade
+cp -r limonade-master /var/www/html
+%do restaru apache2
+sudo service apache2 restart
+
+%ustawienie kontroli bledow
+cd /etc/php
+ls
+cd nazwa_wersji
+cd apache2
+sudo mcedit php.ini
+%i zmienic w pliku w displey_error na ON
+
+% wywolanie Posta curl
+curl -X Post http://localhost/kino/
+% instalacja mongodb
+sudo apt install mongodb-clients mongodb-server php-mongodb
+% wejscie do mongo
+mongo
+%utworzenie nowej bazy przez konsole w mongodb
+use kuznia
+% sprawdzenie baz
+show dbs
+% dodanie nowej kolekcji
+db.kolekcja.insert({ nazwa: "Hello world"})
+% znalezienie wszystkich elementow w kolekcji
+db.kolekcja.find()
+% pokazanie kolekcji
+show collections
+% znalezienie danej kolekcji o danych
+ db.kolekcja.find({ nazwa: "Hello world"})
+% dodanie 2 kluczy przez update
+db.kolekcja.update({"_id":ObjectId("5a870ecaa53697682c5f12d2")},{$set:{nazwa2: 3.14}})
+%zawansowane find
+db.kolekcja.find({nazwa: "Hello world"},{nazwa2: 3.14})
+%usuwanie
+db.kolekcja.remove({nazwa: "Hello world"},{nazwa2: 3.14})
+
+% import z pliku  ( trzeba byc po za mongo )
+mongoimport --jsonArray --db testy --collection helios  --file ~/var/www/html/kina/helios.js
+
+
+
