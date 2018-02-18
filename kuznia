@@ -46,5 +46,5 @@ db.kolekcja.remove({nazwa: "Hello world"},{nazwa2: 3.14})
 % import z pliku  ( trzeba byc po za mongo )
 mongoimport --jsonArray --db testy --collection helios  --file ~/var/www/html/kina/helios.js
 
-
-
+% strona do swagera
+https://app.swaggerhub.com
