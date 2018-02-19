@@ -48,3 +48,16 @@ mongoimport --jsonArray --db testy --collection helios  --file ~/var/www/html/ki
 
 % strona do swagera
 https://app.swaggerhub.com
+
+% DOCKER!!!!!!!!
+COPY config.inc.dist /var/www/html/config.ini
+% docker budowanie
+sudo docker build -t myfirstdockercontainer
+% uruchomianie
+sudo docker run -name my_first_instance -d -t myfirstdockercontainer - p 8080:80
+% sprawdza uruchomione kontenery
+sudo docker ps
+% zatrzymanie docerow
+docker stop $(docker ps -a -q)
+% usuwanie 
+docker rm$(docker ps -a -q)
